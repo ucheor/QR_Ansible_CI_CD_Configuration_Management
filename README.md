@@ -296,3 +296,4 @@ Let me know on discord if you run into any issues with this so I can review and 
 
 Let's get after it!!!
 
+***Remember to clean up practice infrastructure - terraform destroy - if applicable***
