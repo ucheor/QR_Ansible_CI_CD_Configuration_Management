@@ -2,7 +2,7 @@
 
 To improve the reliability, visibility, and traceability of our infrastructure management process, we are implementing a CI/CD pipeline for running our Ansible playbooks. Currently, playbooks are executed manually, which makes it difficult to track execution history, review logs, or ensure consistency across environments. By integrating Ansible with GitHub Actions, this proof of concept (PoC) demonstrates an automated workflow that executes playbooks on code changes, captures detailed run logs, and provides centralized visibility into deployment activity.
 
-Note: This is based off of May2025(17.4) project - setting up ansible servers and nodes - so might make more sense if you already went throug the class/video
+Note: This is based off of May2025(17.4) project - setting up ansible servers and nodes - so might make more sense if you already have that set up.
 
 Will go back and polish my work but in case anyone needs to refernce the steps, here you go!
 
