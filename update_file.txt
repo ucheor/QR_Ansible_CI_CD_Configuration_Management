@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celebration!</title>
+</head>
+<body>
+  <div class="celebrate-container">
+    <div class="celebrate-box">
+      <svg class="celebrate-icon" width="64" height="64" viewBox="0 0 24 24" fill="none">
+        <circle cx="12" cy="12" r="10" stroke="#ffd6e8" stroke-width="2"/>
+        <path d="M7 12l3 3 7-7" stroke="#b5e48c" stroke-width="2" fill="none"
+              stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h1 class="celebrate-text">You did it!!! Way to go 😉 🎉</h1>
+      <div class="confetti pastel-a"></div>
+      <div class="confetti pastel-b"></div>
+      <div class="confetti pastel-c"></div>
+    </div>
+  </div>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0e0e0e;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .celebrate-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+    }
+    .celebrate-box {
+      position: relative;
+      padding: 24px 28px;
+      border-radius: 18px;
+      border: 3px solid #ffd6e8;
+      background: #1a1a1a;
+      animation: pop-in 0.8s ease-out;
+    }
+    .celebrate-icon {
+      animation: bounce 1.6s infinite ease-in-out, rotate-icon 3s infinite ease-in-out;
+    }
+    .celebrate-text {
+      margin-top: 14px;
+      font-size: 1.8rem;
+      color: #c8fff0;
+      font-weight: 800;
+      animation: zoom-pulse 2s infinite ease-in-out;
+    }
+    /* Pastel confetti */
+    .confetti {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: float 2.2s infinite ease-in-out;
+    }
+    .pastel-a { background:#ffc8dd; left:-18px; top:10px; animation-delay:.3s; }
+    .pastel-b { background:#bde0fe; right:-18px; top:26px; animation-delay:.6s; }
+    .pastel-c { background:#caffbf; left:50%; bottom:-18px; animation-delay:.9s; }
+    
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes rotate-icon {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-10deg) scale(1.1); }
+      75% { transform: rotate(10deg) scale(1.1); }
+    }
+    @keyframes zoom-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    @keyframes pop-in {
+      from { transform: scale(.8); opacity:0; }
+      to { transform: scale(1); opacity:1; }
+    }
+    @keyframes float {
+      0% { transform: translateY(0) rotate(0); opacity:1; }
+      100% { transform: translateY(-18px) rotate(45deg); opacity:.2; }
+    }
+  </style>
+</body>
+</html>
