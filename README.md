@@ -92,13 +92,15 @@ Should return no output. Update the command below to add your repository link
 git remote add origin <https://github.com/you/**your_repo**.git>
 ```
 
-**Self-Hosted Runner Set-up (optional)**
+**Self-Hosted Runner Set-up**
 
-We are done with setting up the playbook, now, let's create a self-hosted runner for our GitHub repository using our Ansible control server. This is optional and for situations where you prefer to use a self-hosted runner. In our default workflow, we will be using a GitHub runner. If you want to skip this stage and use a GitHub runner, go ahead to GitHub Actions Workflow step.
+We are done with setting up the playbook, now, let's create a self-hosted runner for our GitHub repository using our Ansible control server. To demonstrate in this particular project, we will be using our control plane as our self-hosted runner. It already contains the private ssh keys for our managed nodes and can connect easily to the managed nodes. Since a default GitHub runner needs the ssh private keys to access our servers, using our already configured control plane removes the need to manually configure our ssh credentials on the GitHub secrets. 
+
+My preference overall is to use external encrypted secrets. Adjust to your preference as needed.
 
 To set up a self-hosted runner, on your new gitHub repository, go to Settings, then Actions, then Runners. Follow the steps to configure a new runner. In this case, we are using our Ansible control node server as out GtHub runner. Feel free to use any other server your prefer.
 
-You will need to be logged into your designated self-hosted runner server to do this configuration.
+You will need to be logged into your designated self-hosted runner server to do this configuration. Refer to the terraform output from earlier if needed.
 
 ![configure_runner](images/configure_runner.png)
 
@@ -110,7 +112,7 @@ You will need to be logged into your designated self-hosted runner server to do 
 
 Once you are done with the self-hosted runner setup, check the runner page on your gitHub repository to make sure your runner has been set up correctly. Make sure you to finish the last part, configure and run.
 
-*Important: to use your self-hosted runner, update the .github/workflows/cicd.yml file (next step) to run on "self-hosted" or any other label you assigned during runner set up.*
+*Important: to use your self-hosted runner, confirm that the .github/workflows/cicd.yml file (next step) runs on "self-hosted" or any other label you assigned during runner set up.*
 
 ![runner_ready](images/runner_ready.png)
 
@@ -128,7 +130,7 @@ on:
       branches: [ main ]
 jobs:
     install:
-      runs-on: ubuntu-latest #switch to "self-hosted" if applicable
+      runs-on: self-hosted #switch to "ubuntu-latest" if applicable
       steps:
         
         - name: git checkout
@@ -137,6 +139,7 @@ jobs:
         - name: run playbook
           working-directory: ./ansible-dev
           run: ansible-playbook install-playbook.yml 
+       
 ```
 
 This ansible playbook is going to run the ansible install-playbook we reviewed earlier and get our application launched on the server (port 80 was exposed during terraform deployment). 

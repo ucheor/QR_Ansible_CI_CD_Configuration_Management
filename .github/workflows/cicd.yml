@@ -4,7 +4,7 @@ on:
       branches: [ main ]
 jobs:
     install:
-      runs-on: ubuntu-latest #switch to "self-hosted" if applicable
+      runs-on: self-hosted #switch to "ubuntu-latest" if applicable
       steps:
         
         - name: git checkout
