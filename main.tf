@@ -32,17 +32,17 @@ resource "aws_instance" "master" {
       "sudo sed -i 's/^KbdInteractiveAuthentication no/KbdInteractiveAuthentication yes/' /etc/ssh/sshd_config",
       "sudo systemctl restart sshd",
       "sudo echo 'ubuntu:ansible' | sudo chpasswd", # Set password for ubuntu user
-      " sudo apt update -y",
+      "sudo apt update -y",
       "sudo apt install -y git sshpass python3-pip",
 
       # Install Ansible via pip (Ubuntu's apt version may be outdated)
-      " sudo pip3 install ansible",
+      "sudo pip3 install ansible",
 
       # Install Amazon AWS Ansible collection
       "ansible-galaxy collection install amazon.aws",
 
       # Install boto3, botocore, and other Python dependencies
-      " sudo pip3 install boto3 botocore awscli yamllint",
+      "sudo pip3 install boto3 botocore awscli yamllint",
       # Create ansible user with secure practices
       #"sudo useradd -m ansible -s /bin/bash",
       #"sudo usermod -aG sudo ansible",
