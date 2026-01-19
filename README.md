@@ -4,7 +4,8 @@ To improve the reliability, visibility, and traceability of our infrastructure m
 
 **Steps:**
 
-**GitHub Repository - https://github.com/ucheor/Ansible_CI_CD**
+**GitHub Repository - https://github.com/ucheor/Ansible_CI_CD_Pipeline_Configuration_Management.git**
+
 
 Set up your work directory and clone the GitHub repository. 
 
