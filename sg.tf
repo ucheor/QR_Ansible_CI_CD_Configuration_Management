@@ -19,6 +19,13 @@ resource "aws_security_group" "ansible_sg" {
     cidr_blocks = ["0.0.0.0/0"] # Restrict to your IP in production
   }
   ingress {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"] # Restrict to your IP in production
+  }
+  
+  ingress {
     description = "Windows RDP from VPC"
     from_port   = 3389
     to_port     = 3389
