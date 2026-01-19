@@ -11,4 +11,4 @@ jobs:
           uses: actions/checkout@v4
         
         - name: run playbook
-          run: ansible-playbook install-playbook.yml
+          run: ansible-playbook ansible-dev/install-playbook.yml
