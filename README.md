@@ -107,7 +107,7 @@ You will need to be logged into your designated self-hosted runner server to do 
 
 ![new_self_hosted_runner](images/new_self_hosted_runner.png)
 
-![runner_set_up](images/download_and_configure_runner.png)
+![runner_set_up](images/download_and_configure_runner1.png)
 
 ![ansible_runner_setup](images/ansible_runner_setup.png)
 
